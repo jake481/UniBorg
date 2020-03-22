@@ -42,20 +42,21 @@ async def _(event):
     if input_str:
         sticker_emoji = input_str
 
+
     me = borg.me
     userid = event.from_id
-    packname = f"{userid}'s @UniBorg Pack"
-    packshortname = f"Uni_Borg_{userid}"  # format: Uni_Borg_userid
+    packname = f"Jake's Pack"
+    packshortname = f"Jakes_Pack"  # format: Jakes_Pack
 
     is_a_s = is_it_animated_sticker(reply_message)
-    file_ext_ns_ion = "@UniBorg_Sticker.png"
+    file_ext_ns_ion = "Jakes_Sticker.png"
     file = await borg.download_file(reply_message.media)
     uploaded_sticker = None
     if is_a_s:
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
-        packname = f"{userid}'s @AnimatedStickersGroup"
-        packshortname = f"Uni_Borg_{userid}_as"  # format: Uni_Borg_userid
+        packname = f"Jake's Pack"
+        packshortname = f"Jakess_Pack"  # format: Jakess_Pack
     elif not is_message_image(reply_message):
         await event.edit("Invalid message type")
         return
@@ -328,3 +329,4 @@ def zipdir(path, ziph):
         for file in files:
             ziph.write(os.path.join(root, file))
             os.remove(os.path.join(root, file))
+
